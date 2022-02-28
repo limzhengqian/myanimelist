@@ -1,13 +1,401 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  background-color: #fbf8f1;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAAAAAA6fptVAAAACXBIWXMAAAsTAAALEwEAmpwYAAAACklEQVQIHWP4DwABAQEANl9ngAAAAABJRU5ErkJggg==);
+  background-repeat: repeat-x;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+#navbar {
+  /* background-color: #fff;
+  background-position: 0 8px;
+  background-repeat: no-repeat;
+  height: 36px;
+  padding: 10px 0 2px;
+  position: relative;
+  display: flex;
+  align-content: space-between; */
+  position: fixed;
+  width: 100%;
+  height: 60px;
+  left: 0px;
+  top: 0px;
+  background: #e9dac1;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  padding: 10px 0 2px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 999;
+}
+
+.animelist-header {
+  /* position: relative;
+  font-size: 15px;
+  padding-left: 1200px;
+  padding-right: 20px; */
+  position: relative;
+  width: 189px;
+  left: 20px;
+  height: 42px;
+  font-family: "Rammetto One", cursive;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 25px;
+  line-height: 42px;
+  text-decoration: none;
+  color: #4046cb;
+  margin-left: 20px;
+}
+
+.user {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-content: space-between;
+}
+
+.userImg {
+  position: relative;
+  width: 33px;
+  height: 33px;
+  left: 1135px;
+  top: -70px;
+  border-radius: 50%;
+}
+
+.username {
+  position: relative;
+  width: 500px;
+  height: 21px;
+  left: 1140px;
+  top: -79px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 18px;
+  line-height: 21px;
+  /* identical to box height */
+  color: #000000;
+  display: inline-flex;
+}
+
+.dropbtn {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background-color: #e9dac1;
+  top: -2px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropbtn svg {
+  position: relative;
+  width: 10px;
+  height: 10px;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown a:hover {
+  background-color: #ddd;
+}
+
+.top-content {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  display: table;
+  table-layout: fixed;
+  position: relative;
+  width: 1300px;
+  height: 750px;
+  margin: auto;
+  margin-top: 200px;
+  background-color: #f7ecde;
+  border-color: #e9dac1;
+  border-style: solid;
+  border-width: 0 1px 1px;
+  padding: 5px 10px 10px;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.top-content-header {
+  background-color: #54bab9;
+  height: 50px;
+  width: 100%;
+  display: flex;
+  align-content: space-between;
+  font-family: "Oswald", sans-serif;
+}
+
+.top-content-header h1 {
+  position: relative;
+  top: -20px;
+}
+
+.form {
+  position: absolute;
+  top: 100px;
+  padding: 0 0 0 8.3%;
+}
+
+.form input {
+  position: absolute;
+  width: 1190px;
+  height: 54px;
+  background: #ececec;
+  mix-blend-mode: darken;
+  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+}
+
+.form button {
+  position: absolute;
+  width: 59px;
+  height: 59px;
+  left: 1330px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.card {
+  position: relative;
+  width: 280px;
+  height: 320px;
+  font-size: 12px;
+  display: inline-block;
+  flex: 0 0 auto;
+  margin: 10px 10px 10px 10px;
+  border-style: solid;
+}
+
+.card-label {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  background-color: white;
+  padding: 5px 7px;
+  border-radius: 2px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.card--image {
+  width: 100%;
+  height: 320px;
+  margin-bottom: 9px;
+}
+
+.card--stats {
+  display: flex;
+  align-items: center;
+}
+
+.card--star {
+  height: 14px;
+}
+
+.singleitem {
+  position: relative;
+  padding: 10px 20px 10px 20px;
+  display: flex;
+  border-style: double;
+  height: 200px;
+  width: 80%;
+  margin: auto;
+  margin-bottom: 20px;
+}
+.singleitem img {
+  height: 170px;
+  width: 120px;
+  padding: 10px 20px 10px 10px;
+  cursor: pointer;
+}
+
+.singleitem h1 {
+  cursor: pointer;
+}
+
+.displayResult {
+  position: relative;
+  top: 120px;
+}
+
+.singlecard-h1 {
+  position: relative;
+  top: 200px;
+}
+
+.Anime-title {
+  text-decoration: none;
+}
+
+.linkhome {
+  position: absolute;
+  top: 200px;
+}
+
+.singleContent {
+  position: relative;
+  width: 90%;
+  height: 739px;
+  top: 143px;
+  margin: auto;
+  border-style: solid;
+}
+
+.TitleDiv {
+  position: absolute;
+  width: 100%;
+  height: 75px;
+  background-color: #4046cb;
+}
+
+.titleAnime {
+  position: absolute;
+  top: -20px;
+  font-size: 33px;
+  padding-left: 10px;
+}
+
+.subtitle {
+  position: absolute;
+  top: 20px;
+  font-size: 19px;
+  padding-left: 10px;
+}
+
+.contentDiv {
+  display: flex;
+  margin-left: 20px;
+  justify-content: space-around;
+}
+
+.imgAnime {
+  position: absolute;
+  width: 403px;
+  height: 571px;
+  left: 30px;
+  top: 110px;
+}
+
+.ratingdetail {
+  display: flex;
+  position: absolute;
+  justify-content: space-between;
+  width: 800px;
+  top: 100px;
+  left: 500px;
+  align-items: center;
+}
+
+.syn {
+  position: absolute;
+  top: 250px;
+  left: 500px;
+  width: 800px;
+}
+
+.score {
+  text-align: center;
+}
+
+.score h1 {
+  margin: -20px 0px -20px 0px;
+}
+
+.vl {
+  border-left: 2px solid #bf9270;
+  height: 70px;
+}
+
+.top-anime-card-list {
+  height: 700px;
+  overflow-y: auto;
+}
+
+.details p {
+  margin: 0px 0px 0px 0px;
+}
+
+.watchlist button {
+  position: absolute;
+  top: 600px;
+  left: 500px;
+}
+
+.login-page {
+  position: absolute;
+  left: 400px;
+  top: 170px;
+  height: 60%;
+  width: 50%;
+  text-align: center;
+  background-color: #BF9270;
+  border-radius: 20px;
+}
+
+.logo {
+  position: absolute;
+  width: 40%;
+  height: 60%;
+  left: 205px;
+}
+
+.headdsc{
+  position: absolute;
+  top:210px;
+  left: 120px;
+}
+
+.headdsc h1{
+  color: #FFEDDB;
+}
+.headdsc p{
+  color :#FFEDDB;
+  margin-top: -10px;
+}
+
+.loginbtn{
+  position: absolute;
+  top:320px;
+  left: 260px;
+}
+
+.btnforl{
+  width: 230px;
+  height: 40px;
+  font-size: 17px;
+}
+
+.glogo{
+  position: relative;
+  width: 22px;
+  left: -15px;
+  top:3px;
 }
