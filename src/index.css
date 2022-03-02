@@ -268,6 +268,8 @@ code {
 }
 
 
+
+
 .displayResult {
   position: relative;
   top: 120px;
@@ -366,15 +368,11 @@ code {
   overflow-y: auto;
 }
 
-.details p {
+.singleitem .details p {
   margin: 0px 0px 0px 0px;
 }
 
-.watchlist button {
-  position: absolute;
-  top: 600px;
-  left: 500px;
-}
+
 
 .login-page {
   position: absolute;

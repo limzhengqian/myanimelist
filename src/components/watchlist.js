@@ -12,6 +12,7 @@ export default function WatchList() {
   const [img_url, updateUrl] = useState("");
   const [anime, updateAnime] = useState([]);
   const [watchList, updateWatchList] = useState([]);
+  const [refresh,updateRefresh] = useState(false)
   useEffect(() => {
     if (auth.currentUser) {
       const docRef = doc(db, "USER", auth.currentUser.uid);
@@ -21,9 +22,16 @@ export default function WatchList() {
       }
       getUserList();
     }
-  }, [auth.currentUser]);
+  }, [auth.currentUser && refresh]);
+
+  useEffect(()=>{
+    if(refresh){
+      updateRefresh(false)
+      window.location.reload(true)
+    }
+  },[refresh])
   watchListElement = watchList.map((item) => {
-    return <WatchListitem id={item} />;
+    return <WatchListitem id={item} updateRefresh={updateRefresh} />;
   });
 
   return <div className="watchlist">{watchListElement}</div>;
