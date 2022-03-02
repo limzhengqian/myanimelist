@@ -8,14 +8,23 @@ import WatchListitem from "./singleItemWatchList";
 
 export default function WatchList() {
   const location = useLocation();
-  let locationElement;
+  let watchListElement;
   const [img_url, updateUrl] = useState("");
   const [anime, updateAnime] = useState([]);
-
-  locationElement = location.state.watchList.map((item) => {
-    console.log(item);
+  const [watchList, updateWatchList] = useState([]);
+  useEffect(() => {
+    if (auth.currentUser) {
+      const docRef = doc(db, "USER", auth.currentUser.uid);
+      async function getUserList() {
+        const docSnap = await getDoc(docRef);
+        updateWatchList(docSnap.data().watchList.reverse());
+      }
+      getUserList();
+    }
+  }, [auth.currentUser]);
+  watchListElement = watchList.map((item) => {
     return <WatchListitem id={item} />;
   });
 
-  return <div className="watchlist">{locationElement}</div>;
+  return <div className="watchlist">{watchListElement}</div>;
 }

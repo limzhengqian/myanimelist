@@ -241,6 +241,33 @@ code {
   cursor: pointer;
 }
 
+
+
+
+
+.singleWatchitem {
+  position: relative;
+  padding: 10px 20px 10px 20px;
+  display: flex;
+  border-style: double;
+  height: 200px;
+  width: 80%;
+  margin: auto;
+  margin-bottom: 20px;
+  top:100px;
+}
+.singleWatchitem img {
+  height: 170px;
+  width: 120px;
+  padding: 10px 20px 10px 10px;
+  cursor: pointer;
+}
+
+.singleWatchitem h1 {
+  cursor: pointer;
+}
+
+
 .displayResult {
   position: relative;
   top: 120px;
@@ -398,4 +425,8 @@ code {
   width: 22px;
   left: -15px;
   top:3px;
+}
+
+.watchlistitem{
+  margin-top:100px;
 }

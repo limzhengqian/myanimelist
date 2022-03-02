@@ -3,15 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getDataCurrentSeason, getTopAnimeData } from "./data";
 import Header from "./Header";
-import { db, auth } from "../firebase-config";
-import {
-  addDoc,
-  collection,
-  getDoc,
-  doc,
-  updateDoc,
-  arrayUnion,
-} from "firebase/firestore";
+
 export default function Content() {
   let navigate = useNavigate();
   const [allAnime, updateAnime] = useState([]);
@@ -20,18 +12,6 @@ export default function Content() {
   const [searchName, updateName] = useState("");
   const [topAnime, updateTop] = useState([]);
   const handleSubmit = (event) => {
-    const addToList = async () => {
-      if (auth.currentUser) {
-        console.log("Login")
-        const currentDoc = doc(db, "USER", auth.currentUser.uid);
-        await updateDoc(currentDoc, {
-          // watchList: arrayUnion(anime.mal_id),
-          searchList:arrayUnion(searchName)
-        });
-      }
-    };
-    addToList()
-
     navigate(`/search/${searchName}`);
   };
 
@@ -85,6 +65,7 @@ export default function Content() {
 
   return (
     <div>
+
       <form onSubmit={handleSubmit} className="form">
         <input
           type="text"

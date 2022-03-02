@@ -1,5 +1,5 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { Navigate, useNavigate, useParams } from "react-router-dom";
 import { auth, db, provider } from "../firebase-config";
 
 import { useEffect, useState } from "react";
@@ -8,6 +8,7 @@ import { addDoc, collection, getDoc, doc, updateDoc, arrayUnion } from "firebase
 
 export default function WatchListitem(props){
     console.log("lol")
+    let navigate = useNavigate()
     const [img_url, updateUrl] = useState("");
   const [anime, updateAnime] = useState([]);
   useEffect(() => {
@@ -22,10 +23,25 @@ export default function WatchListitem(props){
       });
   }, []);
 
+  function handleClick(){
+    navigate(`/${props.id}`)
+  }
+
   return(
-      <div>
-          <img src={img_url} alt="hehe"></img>
-          <h1>{anime.title}</h1>
+    <div className="singleWatchitem">
+    <div className="left">
+      <img src={img_url} onClick={handleClick}></img>
+    </div>
+    <div className="right">
+      <h1 onClick={handleClick}>{anime.title}</h1>
+      <div className="details">
+        <p>
+          {anime.type} ({anime.ep} eps)
+        </p>
+        <p>Scored {anime.score}</p>
+        <p>{anime.member} members</p>
       </div>
+    </div>
+  </div>
   )
 }
