@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  background-color: #EEEEEE;
+  background-color: #eeeeee;
   background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAAAAAA6fptVAAAACXBIWXMAAAsTAAALEwEAmpwYAAAACklEQVQIHWP4DwABAQEANl9ngAAAAABJRU5ErkJggg==);
   background-repeat: repeat-x;
 }
@@ -10,10 +10,10 @@ code {
     monospace;
 }
 
-.addWatchList{
+.addWatchList {
   position: absolute;
-  top:80%;
-  left:35%;
+  top: 80%;
+  left: 35%;
 }
 
 #navbar {
@@ -42,7 +42,7 @@ code {
   font-size: 25px;
   line-height: 42px;
   text-decoration: none;
-  color: #EEEEEE;
+  color: #eeeeee;
   margin-left: 20px;
 }
 
@@ -73,9 +73,9 @@ code {
   font-size: 20px;
   line-height: 21px;
   /* identical to box height */
-  color: #EEEEEE;
+  color: #eeeeee;
   display: inline-flex;
-  font-family: 'Smooch Sans', sans-serif;
+  font-family: "Smooch Sans", sans-serif;
 }
 
 .dropbtn {
@@ -129,7 +129,7 @@ code {
   height: 750px;
   margin: auto;
   margin-top: 200px;
-  background-color: #393E46;
+  background-color: #393e46;
   border-color: black;
   border-style: solid;
   border-width: 0 1px 1px;
@@ -139,34 +139,35 @@ code {
 }
 
 .top-content-header {
-  background-color: #00ADB5;
+  background-color: #00adb5;
   height: 50px;
   width: 100%;
   display: flex;
   align-content: space-between;
   font-family: "Rammetto One", cursive;
-
+  border-style: solid;
+  border-color: #364f6b;
 }
 
 .top-anime-card-list::-webkit-scrollbar {
-  width: 12px;               /* width of the entire scrollbar */
+  width: 12px; /* width of the entire scrollbar */
 }
 
 .top-anime-card-list::-webkit-scrollbar-track {
-  background: #EEEEEE;        /* color of the tracking area */
+  background: #eeeeee; /* color of the tracking area */
 }
 
 .top-anime-card-list::-webkit-scrollbar-thumb {
-  background-color: #00ADB5;    /* color of the scroll thumb */
-  border-radius: 20px;       /* roundness of the scroll thumb */
-  border: 3px solid #EEEEEE;  /* creates padding around scroll thumb */
+  background-color: #00adb5; /* color of the scroll thumb */
+  border-radius: 20px; /* roundness of the scroll thumb */
+  border: 3px solid #eeeeee; /* creates padding around scroll thumb */
 }
-
 
 .top-content-header h1 {
   position: relative;
   top: -20px;
-  color: #222831;
+  color: #eeeeee;
+  margin-left: 40px;
 }
 
 .form {
@@ -205,24 +206,18 @@ code {
   border-style: solid;
 }
 
-.card-label {
-  position: absolute;
-  top: 6px;
-  left: 6px;
-  background-color: white;
-  border-radius: 2px;
-  font-weight: bold;
-  text-decoration: none;
-}
+
 
 .card--image {
   width: 100%;
   height: 320px;
   cursor: pointer;
-  opacity: 0.85; 
+  opacity: 0.85;
 }
 
-.card--image:hover {opacity: 1;  }
+.card--image:hover {
+  opacity: 1;
+}
 
 .card--stats {
   display: flex;
@@ -246,17 +241,13 @@ code {
 .singleitem img {
   height: 170px;
   width: 120px;
-  padding: 10px 20px 10px 10px;
+  padding: 10px 20px 0px 10px;
   cursor: pointer;
 }
 
 .singleitem h1 {
   cursor: pointer;
 }
-
-
-
-
 
 .singleWatchitem {
   position: relative;
@@ -267,7 +258,7 @@ code {
   width: 80%;
   margin: auto;
   margin-bottom: 20px;
-  top:100px;
+  top: 100px;
 }
 .singleWatchitem img {
   height: 170px;
@@ -279,9 +270,6 @@ code {
 .singleWatchitem h1 {
   cursor: pointer;
 }
-
-
-
 
 .displayResult {
   position: relative;
@@ -296,12 +284,12 @@ code {
 .Anime-title {
   text-decoration: none;
   font-size: 20px;
-  font-family: 'Fredoka', sans-serif;
-  color: #EEEEEE;
+  font-family: "Fredoka", sans-serif;
+  color: #eeeeee;
 }
 
-.Anime-title:visited{
-  color: #EEEEEE;
+.Anime-title:visited {
+  color: #eeeeee;
 }
 
 .linkhome {
@@ -316,13 +304,14 @@ code {
   top: 143px;
   margin: auto;
   border-style: solid;
+  border-color: #393e46;
 }
 
 .TitleDiv {
   position: absolute;
   width: 100%;
   height: 75px;
-  background-color: #4046cb;
+  background-color: #00adb5;
 }
 
 .titleAnime {
@@ -331,6 +320,8 @@ code {
   top: -20px;
   font-size: 33px;
   padding-left: 10px;
+  font-family: "Fredoka", sans-serif;
+  color: #222831;
 }
 
 .subtitle {
@@ -339,6 +330,8 @@ code {
   width: 100%;
   font-size: 19px;
   padding-left: 10px;
+  font-family: 'Fredoka', sans-serif;
+  color:#393E46;
 }
 
 .contentDiv {
@@ -364,6 +357,7 @@ code {
   top: 15%;
   left: 35%;
   align-items: center;
+  font-family: 'Roboto Condensed', sans-serif;
 }
 
 .syn {
@@ -374,12 +368,25 @@ code {
   width: 800px;
 }
 
-.syn p{
+.syn h1{
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+.syn p {
   width: 100%;
+  font-family: 'Roboto Condensed', sans-serif;
 }
 
 .score {
   text-align: center;
+}
+
+.scoreanime{
+  background-color: #00adb5;
+  border-radius: 4px;
+  width: 60px;
+  margin-left: 15%;
+  margin-bottom: 20%;
 }
 
 .score h1 {
@@ -400,8 +407,6 @@ code {
   margin: 0px 0px 0px 0px;
 }
 
-
-
 .login-page {
   position: absolute;
   left: 400px;
@@ -409,7 +414,7 @@ code {
   height: 60%;
   width: 50%;
   text-align: center;
-  background-color: #BF9270;
+  background-color: #bf9270;
   border-radius: 20px;
 }
 
@@ -420,39 +425,84 @@ code {
   left: 205px;
 }
 
-.headdsc{
+.headdsc {
   position: absolute;
-  top:210px;
+  top: 210px;
   left: 120px;
 }
 
-.headdsc h1{
-  color: #FFEDDB;
+.headdsc h1 {
+  color: #ffeddb;
 }
-.headdsc p{
-  color :#FFEDDB;
+.headdsc p {
+  color: #ffeddb;
   margin-top: -10px;
 }
 
-.loginbtn{
+.loginbtn {
   position: absolute;
-  top:320px;
+  top: 320px;
   left: 260px;
 }
 
-.btnforl{
+.btnforl {
   width: 230px;
   height: 40px;
   font-size: 17px;
 }
 
-.glogo{
+.glogo {
   position: relative;
   width: 22px;
   left: -15px;
-  top:3px;
+  top: 3px;
 }
 
-.watchlistitem{
-  margin-top:100px;
+.watchlistitem {
+  margin-top: 100px;
 }
+
+
+span{
+  position: relative;
+  display: inline-flex;
+  width: 180px;
+  height: 55px;
+  margin: 0 15px;
+  perspective: 1000px;
+}
+span a{
+  font-size: 19px;
+  letter-spacing: 1px;
+  transform-style: preserve-3d;
+  transform: translateZ(-25px);
+  transition: transform .25s;
+  font-family: 'Montserrat', sans-serif;
+  
+}
+span a:before,
+span a:after{
+  position: absolute;
+  content: "BUTTON";
+  height: 55px;
+  width: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 5px solid black;
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+span a:before{
+  color: #fff;
+  background: #000;
+  transform: rotateY(0deg) translateZ(25px);
+}
+span a:after{
+  color: #000;
+  transform: rotateX(90deg) translateZ(25px);
+}
+span a:hover{
+  transform: translateZ(-25px) rotateX(-90deg);
+}
+

@@ -38,7 +38,6 @@ export default function SingleCard() {
       });
   }, [disable]);
 
-  // const userDb = doc(db,"USER",anime.mal_id)
   const addToList = async () => {
     const currentDoc = doc(db, "USER", auth.currentUser.uid);
     await updateDoc(currentDoc, {
@@ -62,7 +61,7 @@ export default function SingleCard() {
         <div className="rightside">
           <div className="ratingdetail">
             <div className="score">
-              <p>Score</p>
+              <p className="scoreanime">Score</p>
               <h1>{anime.score}</h1>
               <p>{anime.scored_by} users</p>
             </div>
