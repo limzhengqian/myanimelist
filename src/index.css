@@ -463,46 +463,29 @@ code {
 }
 
 
-span{
-  position: relative;
-  display: inline-flex;
-  width: 180px;
-  height: 55px;
-  margin: 0 15px;
-  perspective: 1000px;
+.addWatchList button {
+	width: 150px;
+	height: 50px;
+	cursor: pointer;
+	font-size: 20px;
+	font-weight: bold;
+	color: black;
+	background: white;
+	border: 2px solid black;
+	box-shadow: 5px 5px 0 black,
+		-5px -5px 0 black,
+		-5px 5px 0 black,
+		5px -5px 0 black;
+	transition: 500ms ease-in-out;
 }
-span a{
-  font-size: 19px;
-  letter-spacing: 1px;
-  transform-style: preserve-3d;
-  transform: translateZ(-25px);
-  transition: transform .25s;
-  font-family: 'Montserrat', sans-serif;
-  
+
+.addWatchList button:hover {
+	box-shadow: 20px 5px 0 black, -20px -5px 0 black;
 }
-span a:before,
-span a:after{
-  position: absolute;
-  content: "BUTTON";
-  height: 55px;
-  width: 180px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 5px solid black;
-  box-sizing: border-box;
-  border-radius: 5px;
+
+.addWatchList button:focus {
+	outline: none;
 }
-span a:before{
-  color: #fff;
-  background: #000;
-  transform: rotateY(0deg) translateZ(25px);
-}
-span a:after{
-  color: #000;
-  transform: rotateX(90deg) translateZ(25px);
-}
-span a:hover{
-  transform: translateZ(-25px) rotateX(-90deg);
-}
+
+
 

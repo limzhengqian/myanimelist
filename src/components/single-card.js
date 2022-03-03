@@ -81,7 +81,7 @@ export default function SingleCard() {
             <hr></hr>
             <p>{anime.synopsis}</p>
           </div>
-          {auth.currentUser && (
+          {!disable&&auth.currentUser &&  (
             <div className="addWatchList">
               <button onClick={addToList} disabled={disable}>Add to watch list</button>
             </div>
