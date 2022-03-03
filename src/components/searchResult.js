@@ -8,19 +8,19 @@ export default function Result(){
     let params = useParams();
     const [searchResult, updateResult] = useState([]);
     useEffect(() => {
-        fetch(`https://api.jikan.moe/v3/search/anime?q=${params.name}&limit=30`)
+        fetch(`https://api.jikan.moe/v4/anime?q=${params.name}&sfw&order_by=popularity`)
           .then((res) => res.json())
           .then((data) => 
           {
               
-            updateResult(data.results)
+            updateResult(data.data)
           });
       },[]);
 
       const searchElement =  searchResult.map(datas => {
           console.table(datas)
           return(
-              <SearchItem member={datas.members} ep={datas.episodes} title={datas.title} id={datas.mal_id} imgUrl={datas.image_url} desc={datas.synopsis} type={datas.type} score={datas.score}/>
+              <SearchItem member={datas.members} ep={datas.episodes} title={datas.title} id={datas.mal_id} imgUrl={datas.images.jpg.image_url} desc={datas.synopsis} type={datas.type} score={datas.score}/>
           )
       })
 

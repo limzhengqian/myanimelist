@@ -19,9 +19,7 @@ export default function SearchItem(params) {
           <p>Scored {params.score}</p>
           <p>{params.member} members</p>
         </div>
-        <div className="detaildsc">
-          <p>{params.desc}</p>
-        </div>
+      
       </div>
     </div>
   );
