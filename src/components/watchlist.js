@@ -1,16 +1,12 @@
-import { onAuthStateChanged } from "firebase/auth";
 import { doc, getDoc } from "firebase/firestore";
-import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useEffect, useState  } from "react";
+import { useNavigate } from "react-router";
 import { auth, db } from "../firebase-config";
-import Card from "./card";
 import WatchListitem from "./singleItemWatchList";
 
 export default function WatchList() {
-  const location = useLocation();
   let watchListElement;
-  const [img_url, updateUrl] = useState("");
-  const [anime, updateAnime] = useState([]);
+  let navigate = useNavigate()
   const [watchList, updateWatchList] = useState([]);
   const [refresh,updateRefresh] = useState(false)
   useEffect(() => {
@@ -24,12 +20,15 @@ export default function WatchList() {
     }
   }, [auth.currentUser && refresh]);
 
+  
+
   useEffect(()=>{
     if(refresh){
       updateRefresh(false)
-      window.location.reload(true)
+      navigate("/watchlist",{replace:true})
     }
   },[refresh])
+
   watchListElement = watchList.map((item) => {
     return <WatchListitem id={item} updateRefresh={updateRefresh} />;
   });

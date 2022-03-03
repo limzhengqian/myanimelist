@@ -1,21 +1,15 @@
 import React from "react";
-import { Navigate, useNavigate, useParams } from "react-router-dom";
-import { auth, db, provider } from "../firebase-config";
+import {useNavigate } from "react-router-dom";
+import { auth, db } from "../firebase-config";
 
 import { useEffect, useState } from "react";
-import Header from "./Header";
 import {
-  addDoc,
-  collection,
-  getDoc,
   doc,
   updateDoc,
-  arrayUnion,
   arrayRemove,
 } from "firebase/firestore";
 
 export default function WatchListitem(props) {
-  console.log("lol");
   let navigate = useNavigate();
   const [img_url, updateUrl] = useState("");
   const [anime, updateAnime] = useState([]);
@@ -24,12 +18,11 @@ export default function WatchListitem(props) {
     fetch(`https://api.jikan.moe/v4/anime/${props.id}`)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data.data);
         updateAnime(data.data);
         const img_obj = data.data.images.jpg.image_url;
         updateUrl(img_obj);
       });
-  }, []);
+  }, [props]);
 
   function handleClick() {
     navigate(`/${props.id}`);
@@ -48,7 +41,7 @@ export default function WatchListitem(props) {
   return (
     <div className="singleWatchitem">
       <div className="left">
-        <img src={img_url} onClick={handleClick}></img>
+        <img src={img_url} onClick={handleClick} alt="img"></img>
       </div>
       <div className="right">
         <h1 onClick={handleClick}>{anime.title}</h1>
@@ -58,7 +51,7 @@ export default function WatchListitem(props) {
           </p>
           <p>Scored {anime.score}</p>
           <p>{anime.member} members</p>
-          <button onClick={handleRemove}>Remove</button>
+          <button onClick={handleRemove} className="removeList">❌</button>
         </div>
       </div>
     </div>

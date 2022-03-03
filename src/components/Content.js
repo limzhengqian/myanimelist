@@ -2,7 +2,6 @@ import Card from "./card";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getDataCurrentSeason, getTopAnimeData } from "./data";
-import Header from "./Header";
 
 export default function Content() {
   let navigate = useNavigate();

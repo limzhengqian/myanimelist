@@ -509,4 +509,11 @@ code {
   font-size: 45px;
 }
 
+.removeList{
+  position: absolute;
+  top:0%;
+  right: 0%;
+  background-color: #393E46;
+}
+
 
