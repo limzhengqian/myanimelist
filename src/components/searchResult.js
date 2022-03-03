@@ -8,7 +8,7 @@ export default function Result(){
     let params = useParams();
     const [searchResult, updateResult] = useState([]);
     useEffect(() => {
-        fetch(`https://api.jikan.moe/v4/anime?q=${params.name}&sfw&order_by=popularity`)
+        fetch(`https://api.jikan.moe/v4/anime?q=${params.name}&sfw&order_by=popularity&min_score=1`)
           .then((res) => res.json())
           .then((data) => 
           {
