@@ -1,12 +1,9 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import { auth, db, provider } from "../firebase-config";
+import { auth, db } from "../firebase-config";
 
 import { useEffect, useState } from "react";
-import Header from "./Header";
 import {
-  addDoc,
-  collection,
   getDoc,
   doc,
   updateDoc,
@@ -15,28 +12,8 @@ import {
 export default function SingleCard() {
   const [img_url, updateUrl] = useState("");
   const [anime, updateAnime] = useState([]);
-  const [isWatchList,updatestatewatchlist] = useState(false)
   const [disable, setDisable] = useState(false);
   let params = useParams();
-  // if (auth.currentUser) {
-  //   // console.log("yes")
-  //   const docRef = doc(db, "USER", auth.currentUser.uid);
-  //   async function getUserList() {
-  //     const docSnap = await getDoc(docRef);
-  //     const arrWatcList=docSnap.data().watchList
-  //     // console.log(docSnap.data().watchList)
-  //     for(let i=0;i<arrWatcList.length;i++){
-  //       if(arrWatcList[i].toString() === params.id.toString()){
-  //         console.log("Hello")
-  //         updatestatewatchlist(true)
-  //         console.log(isWatchList)
-
-  //         break
-  //       }
-  //     }
-  //   }
-  //   getUserList();
-  // }
   if (auth.currentUser) {
     const docRef = doc(db, "USER", auth.currentUser.uid);
     async function getUserList() {
@@ -44,7 +21,7 @@ export default function SingleCard() {
       const arrWatcList=docSnap.data().watchList
       for(let i=0;i<arrWatcList.length;i++){
         if(arrWatcList[i].toString() === params.id.toString()){
-          updatestatewatchlist(true)
+          setDisable(true)
           break
         }
       }
@@ -52,9 +29,6 @@ export default function SingleCard() {
     getUserList();
   }
   useEffect(() => {
-console.log(isWatchList)
-    
-
     fetch(`https://api.jikan.moe/v4/anime/${params.id}`)
       .then((res) => res.json())
       .then((data) => {
@@ -108,8 +82,8 @@ console.log(isWatchList)
             <hr></hr>
             <p>{anime.synopsis}</p>
           </div>
-          {auth.currentUser && !isWatchList && (
-            <div className="watchlist">
+          {auth.currentUser && (
+            <div className="addWatchList">
               <button onClick={addToList} disabled={disable}>Add to watch list</button>
             </div>
           )}

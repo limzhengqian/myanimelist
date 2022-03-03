@@ -8,7 +8,7 @@ export default function Card(props){
   }
     return(
         <div className="card">
-        <img src={props.imgUrl} className="card--image" alt="Anime" />
+        <img onClick={handleClick}  src={props.imgUrl} className="card--image" alt="Anime" />
         <div className="card--stats">
           <Link to={`/${props.id}`} key={props.id} className="Anime-title">{props.title}</Link>
           <span className="gray">{props.mal_id}</span>

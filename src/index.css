@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  background-color: #fbf8f1;
+  background-color: #EEEEEE;
   background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAAAAAA6fptVAAAACXBIWXMAAAsTAAALEwEAmpwYAAAACklEQVQIHWP4DwABAQEANl9ngAAAAABJRU5ErkJggg==);
   background-repeat: repeat-x;
 }
@@ -10,21 +10,19 @@ code {
     monospace;
 }
 
+.addWatchList{
+  position: absolute;
+  top:80%;
+  left:35%;
+}
+
 #navbar {
-  /* background-color: #fff;
-  background-position: 0 8px;
-  background-repeat: no-repeat;
-  height: 36px;
-  padding: 10px 0 2px;
-  position: relative;
-  display: flex;
-  align-content: space-between; */
   position: fixed;
   width: 100%;
-  height: 60px;
+  height: 10%;
   left: 0px;
   top: 0px;
-  background: #e9dac1;
+  background: #222831;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   padding: 10px 0 2px;
   display: flex;
@@ -34,10 +32,6 @@ code {
 }
 
 .animelist-header {
-  /* position: relative;
-  font-size: 15px;
-  padding-left: 1200px;
-  padding-right: 20px; */
   position: relative;
   width: 189px;
   left: 20px;
@@ -48,7 +42,7 @@ code {
   font-size: 25px;
   line-height: 42px;
   text-decoration: none;
-  color: #4046cb;
+  color: #EEEEEE;
   margin-left: 20px;
 }
 
@@ -74,21 +68,21 @@ code {
   height: 21px;
   left: 1140px;
   top: -79px;
-  font-family: Roboto;
   font-style: normal;
   font-weight: 800;
-  font-size: 18px;
+  font-size: 20px;
   line-height: 21px;
   /* identical to box height */
-  color: #000000;
+  color: #EEEEEE;
   display: inline-flex;
+  font-family: 'Smooch Sans', sans-serif;
 }
 
 .dropbtn {
   position: absolute;
   width: 30px;
   height: 30px;
-  background-color: #e9dac1;
+  background-color: #222831;
   top: -2px;
   border: none;
   cursor: pointer;
@@ -135,8 +129,8 @@ code {
   height: 750px;
   margin: auto;
   margin-top: 200px;
-  background-color: #f7ecde;
-  border-color: #e9dac1;
+  background-color: #393E46;
+  border-color: black;
   border-style: solid;
   border-width: 0 1px 1px;
   padding: 5px 10px 10px;
@@ -145,17 +139,34 @@ code {
 }
 
 .top-content-header {
-  background-color: #54bab9;
+  background-color: #00ADB5;
   height: 50px;
   width: 100%;
   display: flex;
   align-content: space-between;
-  font-family: "Oswald", sans-serif;
+  font-family: "Rammetto One", cursive;
+
 }
+
+.top-anime-card-list::-webkit-scrollbar {
+  width: 12px;               /* width of the entire scrollbar */
+}
+
+.top-anime-card-list::-webkit-scrollbar-track {
+  background: #EEEEEE;        /* color of the tracking area */
+}
+
+.top-anime-card-list::-webkit-scrollbar-thumb {
+  background-color: #00ADB5;    /* color of the scroll thumb */
+  border-radius: 20px;       /* roundness of the scroll thumb */
+  border: 3px solid #EEEEEE;  /* creates padding around scroll thumb */
+}
+
 
 .top-content-header h1 {
   position: relative;
   top: -20px;
+  color: #222831;
 }
 
 .form {
@@ -190,7 +201,7 @@ code {
   font-size: 12px;
   display: inline-block;
   flex: 0 0 auto;
-  margin: 10px 10px 10px 10px;
+  margin: 10px 10px 50px 10px;
   border-style: solid;
 }
 
@@ -199,7 +210,6 @@ code {
   top: 6px;
   left: 6px;
   background-color: white;
-  padding: 5px 7px;
   border-radius: 2px;
   font-weight: bold;
   text-decoration: none;
@@ -208,8 +218,11 @@ code {
 .card--image {
   width: 100%;
   height: 320px;
-  margin-bottom: 9px;
+  cursor: pointer;
+  opacity: 0.85; 
 }
+
+.card--image:hover {opacity: 1;  }
 
 .card--stats {
   display: flex;
@@ -282,6 +295,13 @@ code {
 
 .Anime-title {
   text-decoration: none;
+  font-size: 20px;
+  font-family: 'Fredoka', sans-serif;
+  color: #EEEEEE;
+}
+
+.Anime-title:visited{
+  color: #EEEEEE;
 }
 
 .linkhome {
@@ -307,6 +327,7 @@ code {
 
 .titleAnime {
   position: absolute;
+  width: 100%;
   top: -20px;
   font-size: 33px;
   padding-left: 10px;
@@ -315,6 +336,7 @@ code {
 .subtitle {
   position: absolute;
   top: 20px;
+  width: 100%;
   font-size: 19px;
   padding-left: 10px;
 }
@@ -322,12 +344,13 @@ code {
 .contentDiv {
   display: flex;
   margin-left: 20px;
+  width: 100%;
   justify-content: space-around;
 }
 
 .imgAnime {
   position: absolute;
-  width: 403px;
+  width: 30%;
   height: 571px;
   left: 30px;
   top: 110px;
@@ -337,17 +360,22 @@ code {
   display: flex;
   position: absolute;
   justify-content: space-between;
-  width: 800px;
-  top: 100px;
-  left: 500px;
+  width: 60%;
+  top: 15%;
+  left: 35%;
   align-items: center;
 }
 
 .syn {
   position: absolute;
+  width: 60%;
   top: 250px;
-  left: 500px;
+  left: 35%;
   width: 800px;
+}
+
+.syn p{
+  width: 100%;
 }
 
 .score {

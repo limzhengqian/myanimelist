@@ -39,11 +39,6 @@ export default function Content() {
   }, []);
 
   const animeElement = allAnime.map((datas) => {
-    // let arrCard = []
-    // for( let i=0;i<datas.entry.length;i++){
-    //    arrCard.push(<Card title={datas.entry[i].title} id={datas.entry[i].mal_id} imgUrl={datas.entry[i].images.jpg.image_url} />)
-    // }
-    // return arrCard;
     return (
       <Card
         title={datas.title}
@@ -65,7 +60,6 @@ export default function Content() {
 
   return (
     <div>
-
       <form onSubmit={handleSubmit} className="form">
         <input
           type="text"

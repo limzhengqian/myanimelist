@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import { auth, db, provider } from "../firebase-config";
 import { signInWithPopup } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
-import { addDoc, collection, getDocs,setDoc, doc } from "firebase/firestore";
-import { async } from "@firebase/util";
+import { collection, getDocs,setDoc, doc } from "firebase/firestore";
+
 
 export default function Login({ setIsAuth }) {
   const [allUSer, importUser] = useState([]);
@@ -24,12 +24,6 @@ export default function Login({ setIsAuth }) {
         searchList:[],
         watchList:[]
     })
-    // await addDoc(userCollection, {
-    //   email: auth.currentUser.email,
-    //   id: auth.currentUser.uid,
-    //   watchlist: [],
-    //   searchlist: [],
-    // });
   };
   const signInWithGoogle = async () => {
     signInWithPopup(auth, provider).then((result) => {
