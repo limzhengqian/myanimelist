@@ -11,7 +11,7 @@ export default function SearchItem(params) {
       </div>
       <div className="right">
         <h1 onClick={handleClick}>{params.title}</h1>
-        <h2>{params.jpTitle}</h2>
+        <h2 onClick={handleClick}>{params.jpTitle}</h2>
         <div className="details">
           <p>
             {params.type} ({params.ep>0?params.ep:0} eps)

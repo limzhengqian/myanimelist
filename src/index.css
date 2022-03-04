@@ -267,21 +267,39 @@ code {
   padding: 10px 20px 10px 20px;
   display: flex;
   border-style: double;
-  height: 200px;
+  height: 250px;
   width: 80%;
   margin: auto;
   margin-bottom: 20px;
   top: 100px;
 }
 .singleWatchitem img {
-  height: 170px;
-  width: 120px;
+  height: 220px;
+  width: 150px;
   padding: 10px 20px 10px 10px;
   cursor: pointer;
+  opacity: 0.9;
+}
+
+.singleWatchitem img:hover{
+  opacity: 1;
 }
 
 .singleWatchitem h1 {
   cursor: pointer;
+  font-family: 'Fredoka', sans-serif;
+
+}
+
+.singleWatchitem h2{
+  cursor: pointer;
+  font-family: 'Fredoka', sans-serif;
+
+}
+
+.singleWatchitem p{
+  font-family: 'Fredoka', sans-serif;
+
 }
 
 .displayResult {
@@ -514,6 +532,7 @@ code {
   top:0%;
   right: 0%;
   background-color: #393E46;
+  cursor: pointer;
 }
 
 

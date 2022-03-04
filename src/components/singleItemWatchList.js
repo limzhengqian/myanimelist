@@ -45,12 +45,13 @@ export default function WatchListitem(props) {
       </div>
       <div className="right">
         <h1 onClick={handleClick}>{anime.title}</h1>
+        <h2 onClick={handleClick}>{anime.title_japanese}</h2>
         <div className="details">
           <p>
             {anime.type} ({anime.ep} eps)
           </p>
           <p>Scored {anime.score}</p>
-          <p>{anime.member} members</p>
+          <p>{anime.members} members</p>
           <button onClick={handleRemove} className="removeList">❌</button>
         </div>
       </div>
