@@ -1,12 +1,13 @@
 import { doc, getDoc } from "firebase/firestore";
 import { useEffect, useState  } from "react";
-import { useNavigate } from "react-router";
+import { useNavigate } from "react-router-dom";
 import { auth, db } from "../firebase-config";
 import WatchListitem from "./singleItemWatchList";
 
 export default function WatchList() {
   let watchListElement;
   let navigate = useNavigate()
+  // let history = useHistory();
   const [watchList, updateWatchList] = useState([]);
   const [refresh,updateRefresh] = useState(false)
   useEffect(() => {
@@ -25,7 +26,7 @@ export default function WatchList() {
   useEffect(()=>{
     if(refresh){
       updateRefresh(false)
-      navigate("/watchlist",{replace:true})
+      navigate("/watchList",{replace:true})
     }
   },[refresh])
 

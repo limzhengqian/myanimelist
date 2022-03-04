@@ -55,7 +55,7 @@ export default function App() {
     async function getUserList() {
       const docSnap = await getDoc(docRef);
       console.log(docSnap.data().watchList);
-      navigate("/watchlist", {
+      navigate("/watchList", {
         state: { watchList: docSnap.data().watchList },
       });
     }
@@ -119,7 +119,7 @@ export default function App() {
         <Route path="/login" element={<Login setIsAuth={setIsAuth} />}></Route>
         <Route path="/:id" element={<SingleCard />} />
         <Route path="/search/:name" element={<Result />}></Route>
-        <Route path="/watchlist" element={<WatchList />}></Route>
+        <Route path="/watchList" element={<WatchList />}></Route>
       </Routes>
     </div>
   );
