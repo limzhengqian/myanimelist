@@ -3,26 +3,23 @@ import { useParams } from "react-router-dom";
 import { auth, db } from "../firebase-config";
 
 import { useEffect, useState } from "react";
-import {
-  getDoc,
-  doc,
-  updateDoc,
-  arrayUnion,
-} from "firebase/firestore";
+import { getDoc, doc, updateDoc, arrayUnion } from "firebase/firestore";
 export default function SingleCard() {
   const [img_url, updateUrl] = useState("");
+  const [video_url, updateVUrl] = useState("");
   const [anime, updateAnime] = useState([]);
   const [disable, setDisable] = useState(false);
+  const [showVideo,updateShow] = useState(false)
   let params = useParams();
   if (auth.currentUser) {
     const docRef = doc(db, "USER", auth.currentUser.uid);
     async function getUserList() {
       const docSnap = await getDoc(docRef);
-      const arrWatcList=docSnap.data().watchList
-      for(let i=0;i<arrWatcList.length;i++){
-        if(arrWatcList[i].toString() === params.id.toString()){
-          setDisable(true)
-          break
+      const arrWatcList = docSnap.data().watchList;
+      for (let i = 0; i < arrWatcList.length; i++) {
+        if (arrWatcList[i].toString() === params.id.toString()) {
+          setDisable(true);
+          break;
         }
       }
     }
@@ -34,7 +31,9 @@ export default function SingleCard() {
       .then((data) => {
         updateAnime(data.data);
         const img_obj = data.data.images.jpg.image_url;
+        const video_ob = data.data.trailer.embed_url;
         updateUrl(img_obj);
+        updateVUrl(video_ob);
       });
   }, [disable]);
 
@@ -43,9 +42,15 @@ export default function SingleCard() {
     await updateDoc(currentDoc, {
       watchList: arrayUnion(anime.mal_id),
     });
-    setDisable(true)
+    setDisable(true);
   };
 
+  function displayVideo(){
+    updateShow(true)
+  }
+function closeVideo(){
+  updateShow(false)
+}
   return (
     <div className="singleContent">
       <div className="TitleDiv">
@@ -55,8 +60,12 @@ export default function SingleCard() {
         </p>
       </div>
       <div className="contentDiv">
+        {showVideo && <iframe className="trailer" src={video_url}></iframe>}
         <div className="leftside">
-          <img className="imgAnime" src={img_url} alt="ntg"></img>
+          <div>
+            <img src={img_url} className="imgAnime"></img>
+
+          </div>
         </div>
         <div className="rightside">
           <div className="ratingdetail">
@@ -81,11 +90,23 @@ export default function SingleCard() {
             <hr></hr>
             <p>{anime.synopsis}</p>
           </div>
-          {!disable&&auth.currentUser &&  (
+          {!disable && auth.currentUser && (
             <div className="addWatchList">
-              <button onClick={addToList} disabled={disable}>Add to watch list</button>
+              <button onClick={addToList} disabled={disable}>
+                Add to watch list
+              </button>
             </div>
           )}
+           <div className="watchTrailer">
+              <button onClick={displayVideo}>
+                Watch Trailer
+              </button>
+            </div>
+            {showVideo && <div className="closeTrailer">
+              <button onClick={closeVideo}>
+                Close Trailer
+              </button>
+            </div>}
         </div>
       </div>
     </div>

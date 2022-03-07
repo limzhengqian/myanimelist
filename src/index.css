@@ -520,6 +520,33 @@ code {
 	outline: none;
 }
 
+.watchTrailer button {
+  position: absolute;
+  top:80%;
+  left:50%;
+	width: 150px;
+	height: 50px;
+	cursor: pointer;
+	font-size: 20px;
+	font-weight: bold;
+	color: black;
+	background: white;
+	border: 2px solid black;
+	box-shadow: 5px 5px 0 black,
+		-5px -5px 0 black,
+		-5px 5px 0 black,
+		5px -5px 0 black;
+	transition: 500ms ease-in-out;
+}
+
+.watchTrailer button:hover {
+	box-shadow: 20px 5px 0 black, -20px -5px 0 black;
+}
+
+.watchTrailer button:focus {
+	outline: none;
+}
+
 .searchBigTitle{
   font-family: 'Roboto Condensed', sans-serif;
   margin-left: 3%;
@@ -533,6 +560,47 @@ code {
   right: 0%;
   background-color: #393E46;
   cursor: pointer;
+}
+
+.imgVideo{
+  position: absolute;
+  top:100px;
+}
+
+.trailer{
+  z-index: 888;
+  position: absolute;
+  width: 98%;
+  height: 90%;
+  left: 0.8%;
+}
+
+
+.closeTrailer button {
+  position: absolute;
+  top:92.5%;
+  left:45%;
+	width: 150px;
+	height: 50px;
+	cursor: pointer;
+	font-size: 20px;
+	font-weight: bold;
+	color: black;
+	background: white;
+	border: 2px solid black;
+	box-shadow: 5px 5px 0 black,
+		-5px -5px 0 black,
+		-5px 5px 0 black,
+		5px -5px 0 black;
+	transition: 500ms ease-in-out;
+}
+
+.closeTrailer button:hover {
+	box-shadow: 20px 5px 0 black, -20px -5px 0 black;
+}
+
+.closeTrailer button:focus {
+	outline: none;
 }
 
 
