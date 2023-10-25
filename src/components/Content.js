@@ -2,7 +2,7 @@ import Card from "./card";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getDataCurrentSeason, getTopAnimeData } from "./data";
-
+//localStorage.setItem("refreshCounter",0)
 export default function Content() {
   let navigate = useNavigate();
   const [allAnime, updateAnime] = useState([]);
@@ -19,22 +19,30 @@ export default function Content() {
     updateName(value);
   }
 
+  const updateData = () => {
+      getDataCurrentSeason().then((data) => {
+        updateAnime(data.data);
+      });
+      getTopAnimeData().then((data) => {
+        updateTop(data.data);
+      });
+     
+    }
+  
+
   useEffect(() => {
     const d = new Date();
-    let month = d.getMonth();
+    let month = d.getMonth()+1;
     updateYear(d.getFullYear());
     if (month >= 1 && month <= 3) updateSeason("Winter");
     else if (month >= 4 && month <= 6) updateSeason("Spring");
     else if (month >= 7 && month <= 9) updateSeason("Summer");
     else updateSeason("Fall");
+    updateData();
+    const intervalId = setInterval(updateData, 60000); // 60000 milliseconds = 1 minute
 
-    getDataCurrentSeason().then((data) => {
-      updateAnime(data.data);
-    });
-
-    getTopAnimeData().then((data) => {
-      updateTop(data.data);
-    });
+    // Cleanup the interval when the component unmounts to prevent memory leaks
+    return () => clearInterval(intervalId);
   }, []);
 
   const animeElement = allAnime.map((datas) => {
